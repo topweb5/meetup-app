@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{meetup.title}}</title>
+</head>
+<body>
+
+     <h2>{{meetup.title}} speakers</h2>
+     <a href="#">add speaker</a>
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Send</th>
+            <th>update</th>
+            <th>delete</th>
+        </tr>
+        {% for speaker in speakers%}
+        <tr>
+            <td>{{speaker.name}}</td>
+            <td>{{speaker.email}}</td>
+        <td><a href="mailto:{{speaker.email}}"> Send Email</a></td>
+        <td><a href="{% url 'update-speaker' speaker.id%}">edit</a></td>
+        <td><a href="{% url 'delete-speaker' speaker.id%}">delete</a></td>
+        </tr>
+        {%endfor%}
+    </table>
+
+    <p>Count: {{count}}</p>
+
+    <h2>Add Speaker</h2>
+    
+</body>
+</html>

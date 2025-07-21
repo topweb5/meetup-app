@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{meetup.title}}</title>
+</head>
+<body>
+{% if request.user.is_authenticated and request.user == meetup.user %}
+   <p> <a href="{% url 'add-speaker' meetup.slug%}">Add Speaker</a></p>
+   <p><a href="#">see participants</a></p>
+   {% endif %}
+
+
+    <img src="{{meetup.image.url}}" alt="{{meetup.title}}" width="40%">
+    <h2>{{meetup.title}}</h2>
+    
+    <span>Date: {{meetup.from_date}} - {{meetup.to_date}}</span>
+    <p>Created: {{meetup.created_at | timesince}} ago</p>
+    <p>Remaining: {{meetup.from_date | timeuntil}} </p>
+    <p> Description: {{ meetup.description }}</p>
+
+<h4>Register to attend</h4>
+
+<form action="" method="POST">
+
+{%csrf_token%}
+{{form.as_p}}
+<button type="submit">send</button>
+</form>
+    <a href="{% url 'meetups'%}">Back</a>
+
+    <h2>Participant</h2>
+    {% for participant in participants%}
+    {{participant.name}}
+
+{%endfor%}
+    <h2>Speakers</h2>
+      {% for speaker in speakers%}
+    {{speaker.name}}
+
+{%endfor%}
+</body>
+</html>

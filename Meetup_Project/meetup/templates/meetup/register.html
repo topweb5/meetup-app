@@ -1,0 +1,52 @@
+{% extends 'meetup/main.html' %}
+{%load crispy_forms_tags %} 
+{% block title%}Register{%endblock%}
+{% block banner%}  
+
+<section class="page-title bg-title overlay-dark">
+	<div class="container">
+		<div class="row">
+			<div class="col-12 text-center">
+				<div class="title">
+					<h3>Login</h3>
+				</div>
+				<ol class="breadcrumb p-0 m-0">
+				  <li class="breadcrumb-item"><a href="index.html">Meetups</a></li>
+				  <li class="breadcrumb-item active">Register</li>
+				</ol>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+
+{%endblock%}
+
+{%block about%}
+<section class="my-4">
+    <div class="container">
+        
+        <div class="row">
+            <div class="col-md-6 m-auto">
+                <h4>Rgistration Form</h4>
+
+ <form action="" method="POST" enctype="multipart/form-data">
+        {%csrf_token%}
+        {{form| crispy}}
+
+        <button type="submit">Register</button>
+    </form>
+    
+                
+ 
+    </div>
+</div>
+
+    
+    </div>
+
+</section>
+
+{%endblock%}

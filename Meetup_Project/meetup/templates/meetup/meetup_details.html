@@ -1,0 +1,121 @@
+{% extends 'meetup/main.html' %}
+{% block title%}Meetup{%endblock%}
+{% block speaker%}{%endblock%}
+
+{% block banner%}  
+<section class="page-title bg-title overlay-dark">
+	<div class="container">
+		<div class="row">
+			<div class="col-12 text-center">
+				<div class="title">
+					<h3>Login</h3>
+				</div>
+				<ol class="breadcrumb p-0 m-0">
+				  <li class="breadcrumb-item"><a href="index.html">Meetups</a></li>
+				  <li class="breadcrumb-item active">Login</li>
+				</ol>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+
+{%endblock%}
+
+
+{% block about%}
+
+
+<section class="section about">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-4 col-md-6 align-self-center">
+				<div class=" bg-about">
+					<img class="img-fluid" src="{{meetup.image.url}}" alt="">
+				</div>
+			</div>
+			<div class="col-lg-8 col-md-6 align-self-center">
+				<div class="content-block">
+					<h2>About <span class="alternate">{{meetup.title}}</span></h2>
+					
+					<div class="description-two">
+						<p>{{meetup.description}}</p>
+					</div>
+					<ul class="list-inline">
+						<li class="list-inline-item">
+							<a href="#" class="btn btn-main-md">Buy ticket</a>
+						</li>
+						<li class="list-inline-item">
+							<a href="#" class="btn btn-transparent-md">Read more</a>
+						</li>
+					</ul>
+				</div>
+               
+			</div>
+		</div>
+	</div>
+</section>
+{%endblock%}
+{% block schedule%}
+<section class="section schedule">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="section-title">
+					<h3>Event <span class="alternate">Schedule</span></h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusm tempor incididunt ut labore</p>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				
+				<div class="schedule-contents bg-schedule">
+					<div class="tab-content" id="pills-tabContent">
+					  
+					  
+]
+
+                      <div class="tab-pane fade schedule-item">
+					  	<!-- Headings -->
+					  	<ul class="m-0 p-0">
+					  		<li class="headings">
+					  			
+					  			<div class="speaker">Speaker</div>
+					  			<div class="subject">Subject</div>
+					  			<div class="venue">Venue</div>
+					  		</li>
+					  		<!-- Schedule Details -->
+                             {% for participant in participants%}
+					  		<li class="schedule-details">
+					  			<div class="block">
+					  			
+							  		
+							  		<!-- Speaker -->
+							  		<div class="speaker">
+							  			<img src="#" alt="speaker-thumb-one">
+										<span class="name"></span>
+							  		</div>
+							  		<!-- Subject -->
+							  		<div class="subject">Introduction to Wp</div>
+							  		<!-- Venue -->
+							  		<div class="venue">Auditorium A</div>
+					  			</div>
+					  		</li>
+                            {%endfor%}
+					  		<!-- Schedule Details -->
+					  		
+					  	</ul>
+					  </div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+</section>
+
+
+{%endblock%}

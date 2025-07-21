@@ -1,0 +1,61 @@
+{% extends 'meetup/main.html' %}
+{% block title%}Meetup{%endblock%}
+{% block speaker%}{%endblock%}
+{% block schedule%}{%endblock%}
+
+{%block meetups%}
+<section class="news section">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="section-title">
+					<h3>Eventre <span class="alternate">News</span></h3>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusm tempor incididunt ut labore dolore</p>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+            {% for meetup in meetups %}
+			<div class="col-lg-4 col-md-6 col-sm-8 col-10 ">
+				<div class="blog-post">
+					<div class="post-thumb">
+						<a href="{% url 'meetup-details' meetup.slug%}">
+							<img src="{{meetup.image.url}}" alt="post-image" class="img-fluid" style="height:15vw; width:100%; object-fit:cover;" >
+						</a>
+					</div>
+					<div class="post-content">
+						<div class="date">
+                           <h6 class="text-white">{{meetup.from_date }}</h6>
+						
+						</div>
+						<div class="post-title">
+							<h2><a href="{% url 'meetup-details' meetup.slug%}">{{meetup.title |title|truncatewords:4}}</a></h2>
+                            <p class="">{{meetup.description|truncatewords:10}}</p>
+						</div>
+						<div class="post-meta">
+							<ul class="list-inline">
+								<li class="list-inline-item">
+									<i class="fa fa-user-o"></i>
+									<a href="#">{{meetup.user.name}}</a>
+								</li>
+								<li class="list-inline-item">
+									<i class="fa fa-heart-o"></i>
+									<a href="#">{{meetup.participant.count}}</a>
+								</li>
+								<li class="list-inline-item">
+									<i class="fa fa-comments-o"></i>
+									<a href="#">30</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			{%endfor%}
+		</div>
+	</div>
+</section>
+
+{%endblock%}
+
+{% block about%} {%endblock%}
