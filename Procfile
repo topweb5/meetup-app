@@ -1,1 +1,1 @@
-web:gunicorn Meetup_Project.wsgi
+web:gunicorn Meetup_Project/Meetup_Project.wsgi
